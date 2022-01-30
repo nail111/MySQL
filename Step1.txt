@@ -1,0 +1,30 @@
+Создание и удаление базы данных:
+-----------------------------------------------------
+CREATE DATABASE [name_of_database];
+
+DROP DATABASE [name_of_database];
+-----------------------------------------------------
+
+
+Создание и удаление таблицы:
+-----------------------------------------------------
+CREATE TABLE [name_of_table] ({variables});
+Example:
+CREATE TABLE users(id int not null auto_increment, primary key(id), name varchar(15), bio text);
+
+
+DROP TABLE [name_of_table];
+-----------------------------------------------------
+
+
+Добавление и удаление заголовка столбца таблицы:
+-----------------------------------------------------
+ALTER TABLE [name_of_table] ADD [name_of_variable] [type_of_variable];
+Example:
+ALTER TABLE users ADD birth DATE;
+
+
+ALTER TABLE [name_of_table] DROP [name_of_variable];
+Example:
+ALTER TABLE users DROP birth;
+-----------------------------------------------------
