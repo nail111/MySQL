@@ -1,0 +1,22 @@
+Создание индексов(Ускоряет получение строк из таблицы):
+--------------------------------------------------------------------------------------------------
+
+CREATE INDEX [name_of_index] ON [name_of_table] ([name_of_variable]);
+Example:
+CREATE INDEX NIndex ON users(name);
+
+
+DROP INDEX [name_of_index]  ON [name_of_table];
+--------------------------------------------------------------------------------------------------
+
+Объединение данных:
+--------------------------------------------------------------------------------------------------
+
+USE test;
+CREATE TABLE IF NOT EXISTS club(club_name text, id int not null auto_increment, primary key(id)) engine=InnoDB;
+CREATE TABLE IF NOT EXISTS player(player_name text, club_id int references club(id)) engine=InnoDB;
+INSERT INTO club(club_name) values ('PSJ'),('Barcelona'),('Real Madrid'),('Man United');
+INSERT INTO player(player_name,club_id) values ('Messi',1),('Marcelo',3),('Pigue',2),('Ronaldi',4),('Neymar',1),('Puig',2),('Benzema',3);
+SELECT id,player_name,club_name FROM club JOIN player ON club_id = club.id ORDER BY (club_name);
+
+--------------------------------------------------------------------------------------------------
